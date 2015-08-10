@@ -11,7 +11,7 @@ define(['knockout', 'lodash', 'i18n', 'app/guests/guests-model', 'app/service/ta
             filterGuests = function () {
                 var f = self.currentFilter();
                 if (f && (f.name || f.tags)) {
-                    return ko.utils.arrayFilter(self.guests(), function (guest) {
+                    return lodash.filter(self.guests(), function (guest) {
                         var by_name = null,
                             by_tag = null;
 

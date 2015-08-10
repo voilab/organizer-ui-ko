@@ -1,14 +1,14 @@
 /*jslint browser: true, unparam: true */
 /*global define, console */
 
-define(['knockout', 'app/util/api', 'app/tags/tags-filters-model'], function (ko, api, TagsFilter) {
+define(['knockout', 'lodash', 'app/util/api', 'app/tags/tags-filters-model'], function (ko, lodash, api, TagsFilter) {
     'use strict';
 
     return {
 
         list: function () {
             return api.get('/tags-filters.json').then(function (data) {
-                return ko.utils.arrayMap(data, function (p) {
+                return lodash.map(data, function (p) {
                     return new TagsFilter(p);
                 });
             });

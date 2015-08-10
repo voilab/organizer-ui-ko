@@ -1,7 +1,7 @@
 /*jslint browser: true */
 /*global define */
 
-define(['knockout', 'i18n', 'app/service/tags', 'app/tags/tags-model'], function (ko, i18n, TagsService, Tag) {
+define(['knockout', 'lodash', 'i18n', 'app/service/tags', 'app/tags/tags-model'], function (ko, lodash, i18n, TagsService, Tag) {
     'use strict';
 
     function TagListView() {
@@ -13,7 +13,7 @@ define(['knockout', 'i18n', 'app/service/tags', 'app/tags/tags-model'], function
             filterTags = function () {
                 var f = self.currentFilter();
                 if (f) {
-                    return ko.utils.arrayFilter(self.tags(), function (tag) {
+                    return lodash.filter(self.tags(), function (tag) {
                         return TagsService.filterText(tag, f);
                     });
                 }

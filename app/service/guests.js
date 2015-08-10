@@ -1,12 +1,12 @@
 /*jslint browser: true, unparam: true */
 /*global define, console */
 
-define(['require', 'knockout', 'app/util/api', 'app/guests/guests-model'], function (require, ko, api, Guest) {
+define(['require', 'knockout', 'lodash', 'app/util/api', 'app/guests/guests-model'], function (require, ko, lodash, api, Guest) {
     'use strict';
 
     // load list only once
     var guests_list = api.get('/guests.json').then(function (data) {
-        return ko.observableArray(ko.utils.arrayMap(data, function (p) {
+        return ko.observableArray(lodash.map(data, function (p) {
             return new Guest(p);
         }));
     });
@@ -66,14 +66,14 @@ define(['require', 'knockout', 'app/util/api', 'app/guests/guests-model'], funct
                     return ids[type][id];
                 },
                 // then filter guests to match tags
-                guestsFilter =  ko.utils.arrayFilter(guests, function (guest) {
+                guestsFilter =  lodash.filter(guests, function (guest) {
                     return TagsService.filter(guest.tags(), tags);
                 });
 
             // finally, calculate sums for each tags
-            ko.utils.arrayForEach(guestsFilter, function (guest) {
+            lodash.forEach(guestsFilter, function (guest) {
                 sums.total += 1;
-                ko.utils.arrayForEach(guest.tags(), function (link) {
+                lodash.forEach(guest.tags(), function (link) {
                     var tag = link.tag(),
                         id = mapId(sums.tags, 'tags', tag.id()),
                         group = '';

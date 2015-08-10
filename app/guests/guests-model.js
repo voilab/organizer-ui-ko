@@ -1,7 +1,7 @@
 /*jslint browser: true */
 /*global define */
 
-define(['knockout', 'app/guests/guests-tags-model'], function (ko, GuestTag) {
+define(['knockout', 'lodash', 'app/guests/guests-tags-model'], function (ko, lodash, GuestTag) {
     'use strict';
 
     var
@@ -20,7 +20,7 @@ define(['knockout', 'app/guests/guests-tags-model'], function (ko, GuestTag) {
             self.email = ko.observable(data.email);
             self.address = ko.observable(data.address);
             self.notes = ko.observable(data.notes);
-            self.tags = ko.observableArray(ko.utils.arrayMap(data.tags || [], function (d) {
+            self.tags = ko.observableArray(lodash.map(data.tags || [], function (d) {
                 return new GuestTag(d);
             }));
         };

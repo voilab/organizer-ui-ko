@@ -1,7 +1,7 @@
 /*jslint browser: true */
 /*global define */
 
-define(['knockout', 'app/tags/tags-filters-link-model'], function (ko, TagsFilterLink) {
+define(['knockout', 'lodash', 'app/tags/tags-filters-link-model'], function (ko, lodash, TagsFilterLink) {
     'use strict';
 
     var
@@ -16,7 +16,7 @@ define(['knockout', 'app/tags/tags-filters-link-model'], function (ko, TagsFilte
 
             self.id = ko.observable(data.id || 'new-filter-' + id);
             self.name = ko.observable(data.name);
-            self.tags = ko.observableArray(ko.utils.arrayMap(data.tags || [], function (d) {
+            self.tags = ko.observableArray(lodash.map(data.tags || [], function (d) {
                 return new TagsFilterLink(d);
             }));
         };

@@ -9,14 +9,14 @@ define(['knockout', 'jquery', 'lodash', 'app/service/tags'], function (ko, jquer
         getSource = function (query, process) {
             return TagsService.list().then(function (data) {
                 var
-                    items = ko.utils.arrayMap(data(), function (tag) {
+                    items = lodash.map(data(), function (tag) {
                         return {
                             id: ko.observable(),
                             is_confirmed: ko.observable(0),
                             tag: ko.observable(tag)
                         };
                     }),
-                    tagsFilter = !query ? items : ko.utils.arrayFilter(items, function (item) {
+                    tagsFilter = !query ? items : lodash.filter(items, function (item) {
                         return (item.tag().name() || '').toLowerCase().indexOf(query.trim().toLowerCase()) !== -1;
                     });
 
@@ -145,7 +145,7 @@ define(['knockout', 'jquery', 'lodash', 'app/service/tags'], function (ko, jquer
             self.input.tagsinput('removeAll');
             silent = false;
 
-            ko.utils.arrayForEach(self.tagLinks, function (link) {
+            lodash.forEach(self.tagLinks, function (link) {
                 silent = true;
                 self.input.tagsinput('add', link);
                 silent = false;
@@ -157,7 +157,7 @@ define(['knockout', 'jquery', 'lodash', 'app/service/tags'], function (ko, jquer
                 items = self.input.tagsinput('items') || [],
                 tags = '';
 
-            ko.utils.arrayForEach(items || [], function (item) {
+            lodash.forEach(items || [], function (item) {
                 var tag = typeof item.tag === 'function' ? item.tag() : item.tag,
                     confirm = item.is_confirmed() === null ? '*' : item.is_confirmed(),
                     parts = ['|', tag.id()];

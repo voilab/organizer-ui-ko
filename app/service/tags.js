@@ -1,12 +1,12 @@
 /*jslint browser: true */
 /*global define, console */
 
-define(['knockout', 'app/util/api', 'app/tags/tags-model'], function (ko, api, Tag) {
+define(['knockout', 'lodash', 'app/util/api', 'app/tags/tags-model'], function (ko, lodash, api, Tag) {
     'use strict';
 
     // load list only once
     var tags_list = api.get('/tags.json').then(function (data) {
-        return ko.observableArray(ko.utils.arrayMap(data, function (p) {
+        return ko.observableArray(lodash.map(data, function (p) {
             return new Tag(p);
         }));
     });
@@ -37,7 +37,7 @@ define(['knockout', 'app/util/api', 'app/tags/tags-model'], function (ko, api, T
                 nbtags = (filterStr.match(/\|\|/g) || []).length + 1;
 
             // loop on all tag links
-            ko.utils.arrayForEach(links, function (link) {
+            lodash.forEach(links, function (link) {
                 var parts = ['|', link.tag().id()],
                     // parts2 is used to check on confirmable
                     // tags, without looking at the status
