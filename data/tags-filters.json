@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "Family in fiesta",
+        "tags": [
+            {
+                "id": 1,
+                "is_confirmed": 1,
+                "tag": {
+                    "id": 1,
+                    "is_confirmable": true,
+                    "name": "Fiesta"
+                }
+            },
+            {
+                "id": 2,
+                "is_confirmed": null,
+                "tag": {
+                    "id": 4,
+                    "is_confirmable": false,
+                    "name": "Family"
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Other filter",
+        "tags": [
+            {
+                "id": 1,
+                "is_confirmed": -1,
+                "tag": {
+                    "id": 1,
+                    "is_confirmable": true,
+                    "name": "Fiesta"
+                }
+            },
+            {
+                "id": 2,
+                "is_confirmed": null,
+                "tag": {
+                    "id": 2,
+                    "is_confirmable": true,
+                    "name": "Banquet"
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Test",
+        "tags": [
+            {
+                "id": 1,
+                "is_confirmed": null,
+                "tag": {
+                    "id": 1,
+                    "is_confirmable": true,
+                    "name": "Fiesta"
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,51 @@
+<h3 data-bind="text: i18n.get('Search by tag')"></h3>
+<select
+    class="form-control"
+    data-bind="options: filters,
+        optionsCaption: i18n.get('Choose an existing filter'),
+        optionsText: 'name',
+        optionValue: 'id',
+        value: selectedFilter">
+</select>
+<div id="tags-group-list">
+    <input
+        type="text"
+        class="form-control"
+        data-role="tagsinput"
+        data-bind="attr: {placeholder: i18n.get('Tags')}, template: {afterRender: initTags()}"/>
+</div>
+<div class="input-group">
+    <button class="btn btn-success form-control" type="button" data-bind="click: doFilter, text: i18n.get('Go')"></button>
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-info dropdown-toggle"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-align-justify"></span>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;
+                <span data-bind="click: addFilter, text: i18n.get('Add, duplicate')"></span>
+            </a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                <span data-bind="click: editFilter, text: i18n.get('Rename filter')"></span>
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-trash"></span>&nbsp;
+                <span data-bind="click: removeFilter, text: i18n.get('Remove filter')"></span>
+            </a></li>
+        </ul>
+    </span>
+</div>
+
+<h3>Résultat: <span data-bind="text: results().total"></span></h3>
+<ul class="nav" data-bind="foreach: {data: results().tags, as: 'result'}">
+    <li>
+        <span data-bind="text: result.link.tag().name()"></span>
+        <span data-bind="foreach: {data: result.groups, as: 'group'}">
+            <span data-bind="attr: {class: $component.resultTagClass(group)}, text: group.total"></span>
+        </span>
+    </li>
+</ul>

@@ -1,0 +1,38 @@
+<form class="search row">
+    <div class="col-sm-4 searchByName">
+        <input type="search" class="form-control"
+            data-bind="
+            attr: {placeholder: i18n.get('Search general')},
+            textInput: searchByName" />
+    </div>
+    <div class="col-sm-8 searchByTags">
+        <div class="input-group">
+            <input
+                type="text"
+                class="form-control"
+                data-role="tagsinput"
+                data-bind="
+                    attr: {placeholder: i18n.get('Tags')},
+                    template: {afterRender: initTags()}"/>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#" data-bind="click: undoSearch, text: i18n.get('Empty search')"></a></li>
+                </ul>
+                <button class="btn btn-warning" data-bind="click: addGuest">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+<div id="guests-list" data-bind="foreach: guestsFilter">
+    <button class="btn btn-sm btn-danger pull-right" style="position: absolute; z-index: 1000; opacity: 0;" data-bind="click: $parent.removeGuest">
+        <span class="glyphicon glyphicon-trash"></span>
+    </button>
+    <guests-form params="guest: $data"></guests-form>
+</div>

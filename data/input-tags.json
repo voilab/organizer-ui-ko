@@ -1,0 +1,42 @@
+[
+    {
+        "tag": {
+            "id": 1,
+            "name": "Fiesta",
+            "is_confirmable": true,
+            "max_guests": 30
+        }
+    },
+    {
+        "tag": {
+            "id": 2,
+            "name": "Banquet",
+            "is_confirmable": true,
+            "max_guests": 20
+        }
+    },
+    {
+        "tag": {
+            "id": 3,
+            "name": "Baby",
+            "is_confirmable": false,
+            "max_guests": 0
+        }
+    },
+    {
+        "tag": {
+            "id": 4,
+            "name": "Family",
+            "is_confirmable": false,
+            "max_guests": 0
+        }
+    },
+    {
+        "tag": {
+            "id": 5,
+            "name": "Friend",
+            "is_confirmable": false,
+            "max_guests": 0
+        }
+    }
+]

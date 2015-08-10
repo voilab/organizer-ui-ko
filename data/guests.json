@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "firstname": "John",
+        "name": "Smith",
+        "tags": [
+            {
+                "id": 1,
+                "is_confirmed": -1,
+                "tag": {
+                    "id": 1,
+                    "name": "Fiesta",
+                    "is_confirmable": true
+                }
+            },
+            {
+                "id": 2,
+                "is_confirmed": 1,
+                "tag": {
+                    "id": 2,
+                    "name": "Banquet",
+                    "is_confirmable": true
+                }
+            },
+            {
+                "id": 3,
+                "tag": {
+                    "id": 5,
+                    "name": "Friend",
+                    "is_confirmable": false
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "firstname": "Mercedes",
+        "name": "Flavincome",
+        "tags": [
+            {
+                "id": 4,
+                "tag": {
+                    "id": 4,
+                    "name": "Family",
+                    "is_confirmable": false
+                }
+            },
+            {
+                "id": 10,
+                "is_confirmed": 1,
+                "tag": {
+                    "id": 1,
+                    "name": "Fiesta",
+                    "is_confirmable": true
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "firstname": "Dwayne",
+        "name": "O'Connor",
+        "tags": [
+            {
+                "id": 5,
+                "is_confirmed": 0,
+                "tag": {
+                    "id": 1,
+                    "name": "Fiesta",
+                    "is_confirmable": true
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "firstname": "Fernand",
+        "name": "Dupuit"
+    }
+]

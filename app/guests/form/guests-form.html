@@ -1,0 +1,54 @@
+<form class="guests-form" data-bind="attr: {'data-id': getFormId()}">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <input
+                type="text"
+                class="form-control"
+                data-bind="
+                    value: guest().firstname,
+                    attr: {placeholder: i18n.get('Firstname')}" />
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <input
+                type="text"
+                class="form-control"
+                data-bind="
+                    value: guest().name,
+                    attr: {placeholder: i18n.get('Name')}" />
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <input
+                type="email"
+                class="form-control"
+                data-bind="
+                    value: guest().email,
+                    attr: {placeholder: i18n.get('Email')}" />
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <textarea
+                class="form-control"
+                data-bind="
+                    value: guest().address,
+                    attr: {placeholder: i18n.get('Address')}"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <input
+                type="text"
+                class="form-control"
+                data-bind="
+                    enable: guest().id(),
+                    attr: {placeholder: i18n.get('Tags')},
+                    template: {afterRender: initTags()}"
+                data-role="tagsinput" />
+        </div>
+        <div class="col-sm-3">
+            <textarea
+                class="form-control"
+                data-bind="
+                    value: guest().notes,
+                    attr: {placeholder: i18n.get('Add notes')}"></textarea>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Party!!</title>
+        <!-- css -->
+        <link type="text/css" rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" />
+        <link type="text/css" rel="stylesheet" href="css/app.css" />
+        <!-- js -->
+        <script type="text/javascript" src="vendor/requirejs/require.js" data-main="app/bootstrap.js"></script>
+        <script type="text/javascript" src="app/i18n/fr.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Party<em>!!</em>
+                    <small class="lead">T'es à la rue pour t'organiser? Voici ta dernière chance...</small>
+                </h1>
+            </div>
+            <div class="row">
+                <tags-filters class="col-sm-3"></tags-filters>
+                <div class="col-sm-9">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#guests" aria-controls="guests" role="tab" data-toggle="tab">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Guests
+                        </a></li>
+                        <li role="presentation"><a href="#tags" aria-controls="tags" role="tab" data-toggle="tab">
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                            Tags
+                        </a></li>
+                        <li role="presentation" class="disabled"><a href="#" aria-controls="expenses" role="tab">
+                            <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+                            Expenses
+                        </a></li>
+                        <li role="presentation" class="disabled"><a href="#" aria-controls="gifts" role="tab">
+                            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                            Gifts
+                        </a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <guests-list role="tabpanel" class="tab-pane fade in active" id="guests"></guests-list>
+                        <tags-list role="tabpanel" class="tab-pane fade in" id="tags"></tags-list>
+                        <div role="tabpanel" class="tab-pane fade in" id="expenses">
+                            EXPENSES TODO
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="gifts">
+                            GIFTS TODO
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row footer">
+                <p>Powered by <span>v</span></p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<form class="search row">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <input type="search" class="form-control"
+                data-bind="
+                attr: {placeholder: i18n.get('Search general')},
+                textInput: searchByTag" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#" data-bind="click: undoSearch, text: i18n.get('Empty search')"></a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</form>
+<table class="table table-striped table-hover">
+    <thead>
+        <th class="col-sm-5" data-bind="text: i18n.get('Tag')"></th>
+        <th class="col-sm-1" data-bind="text: i18n.get('Confirmable')"></th>
+        <th class="col-sm-1" data-bind="text: i18n.get('Max')"></th>
+        <th class="col-sm-4" data-bind="text: i18n.get('Notes')"></th>
+        <th class="col-sm-1">
+            <button class="btn btn-sm btn-warning" data-bind="click: addTag">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+        </th>
+    </thead>
+    <tbody data-bind="foreach: tagsFilter">
+        <tr>
+            <td><input
+               type="text"
+               class="form-control"
+               required="required"
+               data-bind="
+                    value: name,
+                    attr: {placeholder: $parent.i18n.get('Tag name')}" /></td>
+            <td><input
+               type="checkbox"
+               class="form-control"
+               data-bind="checked: is_confirmable" /></td>
+            <td><input
+               type="number"
+               class="form-control"
+               data-bind="value: max_guests" /></td>
+            <td><textarea
+                class="form-control"
+                data-bind="
+                    value: notes,
+                    attr: {placeholder: $parent.i18n.get('Add notes')}"></textarea></td>
+            <td>
+                <button class="btn btn-sm btn-danger" data-bind="click: $parent.removeTag">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
